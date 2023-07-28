@@ -10,22 +10,22 @@ import Contact from "./components/Contact";
 import { useState } from "react";
 function App() {
   const [isDark,setIsDark] = useState('dark');
-  function modeHandler()
-  {
-    if(isDark == 'dark'){
-      setIsDark('light');
-    }
-    else{
-      setIsDark('dark');
-    }
-  }
+  // function modeHandler()
+  // {
+  //   if(isDark == 'dark'){
+  //     setIsDark('light');
+  //   }
+  //   else{
+  //     setIsDark('dark');
+  //   }
+  // }
   return (
     <div className={`bg${isDark}`}>
-      <NavBar modeHandler={modeHandler} isDark={isDark}/>
+      <NavBar isDark={isDark} setIsDark={setIsDark}/>
       <Home isDark={isDark}/>
       <About/>
       <Skills isDark={isDark}/>
-      <Projects/>
+      <Projects isDark={isDark}/>
       <Contact isDark={isDark}/>
       <Footer isDark={isDark}/>
       {/* <Routes>
