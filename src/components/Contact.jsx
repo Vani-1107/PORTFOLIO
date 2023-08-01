@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {AiOutlineMail} from 'react-icons/ai';
 import {FiLinkedin,FiSend,FiGithub} from 'react-icons/fi';
 import {GrInstagram} from 'react-icons/gr';
+import api from '../config/configaxios';
 function Contact({isDark}){
     const [formData,setFormData] = useState({name:"",email:"",subject:"",message:""});
     function changeHandler(e){
@@ -12,11 +13,56 @@ function Contact({isDark}){
                 [e.target.name] : e.target.value
             }
         })
-        
     }
-    function submitHandler(e){
+    // let headers = new Headers();
+
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Accept', 'application/json');
+    // // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
+    // headers.append('Origin','http://localhost:4000');
+    // // require("dotenv").config();
+    const submitHandler = async(e) => {
         e.preventDefault();
         console.log(formData);
+        // try{
+        //     await fetch(`${process.env.REACT_APP_BASE_URL}/messageform`,{
+        //     // await fetch('http://localhost:4000/api/v1/messageform',{
+        //         // mode:'no-cors',
+        //         // credentials:'include',
+        //         // method:"POST",
+        //         // headers:headers,
+        //         //     "Content-Type": "application/json",
+        //         // },
+        //         // body: JSON.stringify(formData),
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //          },
+        //         body: JSON.stringify(formData),
+        //     })
+        //     .then((res)=>{
+        //         console.log(res);
+        //         console.log("successful");
+        //     })
+        //     .catch((err)=>{
+        //         console.log("error");
+        //         console.log(err)
+        //     });
+        // }
+        // catch(err){
+        //     console.log(err);
+        // };
+        api
+        .post(`/api/v1/messageform`, formData )
+        .then((response) => {
+          console.log(response);
+          
+         
+        })
+        .catch((error) => {
+          console.log(error.response);
+         
+        });
         resetformData();
     }
     function resetformData(){
@@ -101,29 +147,3 @@ function Contact({isDark}){
     )
 }
 export default Contact;
-
-{/* <div>
-                    <div>
-                        <div><AiOutlineMail/></div>
-                        <div>
-                            <div>Email</div>
-                            <div>vaniguptaa2003@gmail.com</div>
-                        </div>
-                    </div>
-                    <div>
-                        <a href='https://www.linkedin.com/in/vani03/'>
-                            <div><FiLinkedin/></div>
-                            <div>
-                                <div>LinkedIn</div>
-                                <div>vani03</div>
-                            </div>
-                        </a>
-                    </div> 
-                    <div>
-                        <div><SlLocationPin/></div>
-                        <div>
-                            <div>Location</div>
-                            <div>Kolkata,India</div>
-                        </div>
-                    </div>
-                </div> */}
