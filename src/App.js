@@ -19,6 +19,10 @@ function App() {
   //     setIsDark('dark');
   //   }
   // }
+  function closePopUp()
+  {
+      document.getElementById('overlay').classList.remove('overlayactive');
+  }
   return (
     <div className={`bg${isDark}`}>
       <NavBar isDark={isDark} setIsDark={setIsDark}/>
@@ -28,14 +32,7 @@ function App() {
       <Projects isDark={isDark}/>
       <Contact isDark={isDark}/>
       <Footer isDark={isDark}/>
-      {/* <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/about" element={<About/>}></Route>
-        <Route path="/skills" element={<Skills/>}></Route>
-        <Route path="/projects" element={<Projects/>}></Route>
-        <Route path="/contact" element={<Contact isDark={isDark}/>}></Route>
-      </Routes>
-      <Footer/> */}
+      <div className='overlay' onclick={closePopUp}></div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import {react} from 'react';
+import {react, useEffect} from 'react';
 import css from '../assets/CSS.png';
 import express from '../assets/Express.png';
 import html from '../assets/HTML.png';
@@ -29,7 +29,8 @@ function Skills({isDark}){
             lang.classList.remove('language');
             lang.classList.add('languageDisplay');
         }
-        else{
+        else
+        {
             setLangChevron("down");
             lang.classList.remove('languageDisplay');
             lang.classList.add('language');
@@ -51,6 +52,10 @@ function Skills({isDark}){
             lib.classList.add('language');
         }
     }
+    useEffect(()=>{
+        langHandler();
+        libHandler();
+    },[]);
     return(
         <div className={`footer_bg${isDark} w-full relative pt-14 pb-20 font-Poppins`} id='skills'>
                 {/* <NavLink to='/about'>
