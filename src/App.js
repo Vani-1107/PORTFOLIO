@@ -19,12 +19,16 @@ function App() {
   //     setIsDark('dark');
   //   }
   // }
-  function closePopUp()
-  {
-      document.getElementById('overlay').classList.remove('overlayactive');
-  }
+  // function closePopUp()
+  // {
+  //     document.getElementsById('overlay').classList.remove('overlayactive');
+  // }
+  // function addOverlay()
+  // {
+  //   document.getElementsById('overlay').classList.add('overlayactive');
+  // }
   return (
-    <div className={`bg${isDark}`}>
+    <div className={`bg${isDark} relative`}>
       <NavBar isDark={isDark} setIsDark={setIsDark}/>
       <Home isDark={isDark}/>
       <About/>
@@ -32,9 +36,11 @@ function App() {
       <Projects isDark={isDark}/>
       <Contact isDark={isDark}/>
       <Footer isDark={isDark}/>
-      <div className='overlay' onclick={closePopUp}></div>
+      {/* <div id='overlay' className='overlay' onclick={closePopUp}>
+      </div>   closePopUp={closePopUp} addOverlay={addOverlay}*/}
     </div>
   );
 }
 
 export default App;
+

@@ -10,8 +10,23 @@ import { useEffect, useState } from 'react';
 import {FiChevronLeft,FiChevronRight} from 'react-icons/fi';
 
 function Projects({isDark}){
-    let overlay = document.querySelector('.overlay');
     const [shift,setShift] = useState(0);
+    // function removeOverlay(){
+    //     closePopUp();
+    // }
+    // function addOverlay1(){
+    //     addOverlay();
+    // }
+    function removeOverlay()
+  {
+      document.getElementsById('overlay').classList.remove('overlayactive');
+  }
+  function addOverlay()
+  {
+    // document.getElementById('projects').style.backgroundColor = ;
+    document.getElementsById('overlay').classList.add('overlayactive');
+  }
+
     function leftShiftHandler(){
         if(shift == 0){
             setShift(data.length - 1);
@@ -30,18 +45,6 @@ function Projects({isDark}){
         }
         document.getElementById('eachProject').classList.add('fade');
     }
-    // let interval = setInterval(() => {
-    //     rightShiftHandler();
-    // }, 5000);
-
-    // function pauseInterval(){
-    //     clearInterval(interval);
-    // }
-    // function resumeInterval(){
-    //     interval = setInterval(() => {
-    //         rightShiftHandler();
-    //     }, 5000);
-    // }
     function dotHandler1(){
         setShift(0);
     }
@@ -74,7 +77,8 @@ function Projects({isDark}){
         }
     },[shift]);
     return(
-        <div id="projects" className={`footer_bg${isDark} w-full relative mt-14 pb-20 font-Poppins`}>
+        <div id="projects" className={`footer_bg${isDark} w-full relative mt-14 pb-20 font-Poppins xyz`}>
+            <div id='overlay' className='overlay' onclick={removeOverlay}></div>
             {/* <div className={`contact_text${isDark} w-4/12 mx-auto h-[0.1rem] opacity-50 bg-[#ffffff] mb-32 mt-10`}></div> */}
             <div className={`contact_text${isDark} w-4/12 mx-auto h-[0.1rem] opacity-50 bg-[#ffffff] mb-32 mt-10 absolute -top-16 left-[33%] text-center`}></div>
             <div className='w-full pt-16 mx-auto flex flex-col items-center mb-20 '>
@@ -105,7 +109,7 @@ function Projects({isDark}){
                 </div>
             </div>  bg-[#cacaca] */}
             <div className='mx-auto'>
-                <Card data1={data[shift]} rightShiftHandler={rightShiftHandler}></Card>
+                <Card data1={data[shift]} rightShiftHandler={rightShiftHandler} removeOverlay={removeOverlay} addOverlay={addOverlay}></Card>
             </div>
             <div className='absolute left-48 top-[55%]'>
                 {/* <div className='w-12 h-12 rounded-full flex items-center justify-center border border-2 opacity-50'> */}
@@ -122,6 +126,7 @@ function Projects({isDark}){
                 <div id='dot2'><div className='w-3 h-3 rounded-full bg-[#ffffff] opacity-50 cursor-pointer' onClick={dotHandler3}></div></div>
             </div>
             {/* <div className='overlay' onclick={closePopUp}></div> */}
+            <div id='overlay' className='overlay' onclick={removeOverlay}></div>
         </div>
     )
 }
