@@ -13,8 +13,8 @@ module.exports = {
       Poppinsb: ["poppins-bold","bold"],
     },
     screens:{
-      'lg' : '1024px',
-      'md' : '768px',
+      'lg' : '1350px',
+      'md' : '968px',
       'sm' : '640px',
       'xs' : '470px',
     },

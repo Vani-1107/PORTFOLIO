@@ -50,23 +50,23 @@ function NavBar(props){
                 <div>
                     <ul className=" flex flex-col xs:flex-row sm:items-center space-y-3 xs:space-y-0 xs:space-x-4 sm:space-x-8">
                         <li>
-                            <a href="#" className="navElement">Home</a>
+                            <a href="#" className="navElement hidden xs:flex">Home</a>
                         </li>
                         <li>
-                            <a href="#about" className="navElement">About</a>
+                            <a href="#about" className="navElement hidden xs:flex">About</a>
                         </li>
                         <li>
-                            <a href="#skills" className="navElement">Skills</a>
+                            <a href="#skills" className="navElement hidden xs:flex">Skills</a>
                         </li>
                         <li>
-                            <a href="#projects" className="navElement">Projects</a>
+                            <a href="#projects" className="navElement hidden xs:flex">Projects</a>
                         </li>
                         <li>
-                            <a href="#contact" className="navElement">Contact</a>
+                            <a href="#contact" className="navElement hidden xs:flex">Contact</a>
                         </li>
                         <li>
                         {
-                            props.isDark == 'dark' ? <BsSun size={28} className="cursor-pointer navElement" onClick={themeHandler} /> : <MdOutlineDarkMode size={28} className="cursor-pointer navElement" onClick={themeHandler}/>
+                            props.isDark == 'dark' ? <BsSun size={28} className="cursor-pointer navElement -mt-14 xs:mt-0 " onClick={themeHandler} /> : <MdOutlineDarkMode size={28} className="cursor-pointer navElement -mt-14 xs:mt-0 " onClick={themeHandler}/>
                         }
                         </li>
                     </ul>
@@ -93,23 +93,23 @@ function NavBar(props){
                 <div>
                     <ul className=" flex flex-col xs:flex-row sm:items-center space-y-3 xs:space-y-0 xs:space-x-4 sm:space-x-8">
                         <li>
-                            <a href="#" className="navElement">Home</a>
+                            <a href="#" className="navElement hidden xs:flex">Home</a>
                         </li>
                         <li>
-                            <a href="#about" className="navElement">About</a>
+                            <a href="#about" className="navElement hidden xs:flex">About</a>
                         </li>
                         <li>
-                            <a href="#skills" className="navElement">Skills</a>
+                            <a href="#skills" className="navElement hidden xs:flex">Skills</a>
                         </li>
                         <li>
-                            <a href="#projects" className="navElement">Projects</a>
+                            <a href="#projects" className="navElement hidden xs:flex">Projects</a>
                         </li>
                         <li>
-                            <a href="#contact" className="navElement">Contact</a>
+                            <a href="#contact" className="navElement hidden xs:flex">Contact</a>
                         </li>
-                        <li>
+                        <li className="-mt-24">
                         {
-                            props.isDark == 'dark' ? <BsSun size={28} className="cursor-pointer navElement" onClick={themeHandler} /> : <MdOutlineDarkMode size={28} className="cursor-pointer navElement" onClick={themeHandler}/>
+                            props.isDark == 'dark' ? <BsSun size={28} className="cursor-pointer navElement -mt-14 xs:mt-0 " onClick={themeHandler} /> : <MdOutlineDarkMode size={28} className="-mt-14 xs:mt-0 cursor-pointer navElement" onClick={themeHandler}/>
                         }
                         </li>
                     </ul>
