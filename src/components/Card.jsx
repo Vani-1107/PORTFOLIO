@@ -15,7 +15,7 @@ function Card(props) {
     // top-[0%]  md:top-[10%] lg:top-[20%]
   return (
         <div className='relative' id='eachProject'>
-            <div className={`relative cursor-pointer mx-auto project_card${props.data1.id} group`}  id='projectImage'>
+            <div className={`relative cursor-pointer mx-auto project_card_${props.isDark}${props.data1.id} group`}  id='projectImage'>
                 <img src={props.data1.image} className='w-full rounded-lg' id='image'></img>
                 <div id='text-title' onClick={viewDetails} className='absolute left-[3%] bottom-[4%] text-[#ffffff] text-sm sm:text-xl md:text-2xl lg:text-3xl font-bold opacity-0 group-hover:opacity-100 z-[100]'>{props.data1.title}</div>
                 <div className={`absolute left-0 top-0 md:left-[7%] lg:left-[15%] md:top-[7%] lg:top-[15%] hidden z-[100] h-[100%] w-[100%]  md:h-[86%] md:w-[86%] lg:h-[70%] lg:w-[70%] rounded-xl p-3 border border-[#ffffff]`} id='details'>

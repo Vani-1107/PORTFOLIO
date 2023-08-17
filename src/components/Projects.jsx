@@ -64,15 +64,13 @@ function Projects({isDark}){
                 <div className='opacity-75'>Designs that tranforms, responsive that performs...</div>
             </div>
             <div className='mx-auto'>
-                <Card data1={data[shift]} rightShiftHandler={rightShiftHandler}></Card>
+                <Card data1={data[shift]} rightShiftHandler={rightShiftHandler} isDark={isDark}></Card>
             </div>
             <div className='absolute left-10 sm:left-[4.5rem] md:left-28 lg:left-48 top-[55%]'>
-                {/* <div className='w-12 h-12 rounded-full flex items-center justify-center border border-2 opacity-50'> */}
-                    <button className='cursor-pointer hover:scale-110 text-4xl font-extrabold' onClick={leftShiftHandler}><FiChevronLeft></FiChevronLeft></button>
-                {/* </div> */}
+                    <button className='cursor-pointer hover:scale-110 text-5xl font-extrabold' onClick={leftShiftHandler}><FiChevronLeft></FiChevronLeft></button>
             </div>
             <div className='absolute right-10 sm:right-[4.5rem] md:right-28 lg:right-48 top-[55%]'>
-                <button className='cursor-pointer hover:scale-110 text-4xl' onClick={rightShiftHandler}><FiChevronRight/></button>
+                <button className='cursor-pointer hover:scale-110 text-5xl' onClick={rightShiftHandler}><FiChevronRight/></button>
             </div>
             {/* dots */}
             <div className='flex space-x-3 justify-center mt-6'>

@@ -13,22 +13,22 @@ function Footer({isDark}){
             <div>A full stack web developer</div>
             <div>Designing for the future, one website at a time</div>
             <div className='mx-auto flex flex-row space-x-2 py-2'>
-                <a href='https://www.linkedin.com/in/vani03/'>
+                <a href='https://www.linkedin.com/in/vani03/' target='_blank'>
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center border${isDark} footerHover`}>
                         <FaLinkedinIn />
                     </div>
                 </a>
-                <a href='https://github.com/Vani-1107' >
+                <a href='https://github.com/Vani-1107' target='_blank'>
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center border${isDark} footerHover`}>
                         <AiFillGithub/>
                     </div>
                 </a>
-                <a href='https://www.instagram.com/__vanigupta__/'>
+                <a href='https://www.instagram.com/__vanigupta__/' target='_blank'>
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center border${isDark} footerHover`}>
                         <BsInstagram/>
                     </div>
                 </a>
-                <a href='https://twitter.com/Vani20262421301'>
+                <a href='https://twitter.com/Vani20262421301' target='_blank'>
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center border${isDark} footerHover`}>
                         <BsTwitter/>
                     </div>
