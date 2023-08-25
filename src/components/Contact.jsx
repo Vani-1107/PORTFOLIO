@@ -3,7 +3,14 @@ import {AiOutlineMail} from 'react-icons/ai';
 import {FiLinkedin,FiSend,FiGithub} from 'react-icons/fi';
 import {GrInstagram} from 'react-icons/gr';
 import api from '../config/configaxios';
+import { motion } from 'framer-motion';
+import { fadeIn } from './variants';
+import {useInView} from 'react-intersection-observer';
+import { ToastContainer, toast } from 'react-toastify';
 function Contact({isDark}){
+    const[ref]=useInView({
+        threshold:0.5,
+    });
     const [formData,setFormData] = useState({name:"",email:"",subject:"",message:""});
     function changeHandler(e){
         setFormData((prevData)=>{
@@ -19,11 +26,20 @@ function Contact({isDark}){
         api
         .post(`/api/v1/messageform`, formData )
         .then((response) => {
-          console.log(response);
+            console.log(response);
+            toast.success('Message sent successfully!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                className:'toast',
+                });
         })
         .catch((error) => {
           console.log(error.response);
-         
         });
         resetformData();
     }
@@ -31,7 +47,12 @@ function Contact({isDark}){
         setFormData({name:"",email:"",subject:"",message:""});
     }
     return(
-        <div className='pt-24 pb-32' id='contact'>
+        <motion.div className='pt-24 pb-32' id='contact' ref={ref}
+            variants={fadeIn()}
+            initial='hidden'
+            whileInView={'show'}
+            viewport={{once:false,amount:0.3}} 
+        >
             <div className=' w-full mx-auto text-center'>
                 <div className='text-3xl font-bold font-Poppins'>Get In Touch</div>
                 <div className={`contact_text${isDark} w-32 h-1 mx-auto mt-2`}></div>
@@ -62,15 +83,15 @@ function Contact({isDark}){
                     <div className='shadow-sm shadow-purple p-7 rounded-lg flex flex-col w-[60vw] md:w-[40vw] lg:w-[30vw]'>
                         <div className='text-xl pb-8 font-bold'>Send me a message</div>
                         <form className='flex flex-col space-y-5' onSubmit={submitHandler}>
-                            <input type='text' required placeholder='Full Name' className='px-2 py-1 border border-purple rounded-lg bg-[#6c6b6b32]' name='name' onChange={changeHandler} value={formData.name}></input>
+                            <input required type='text' placeholder='Full Name' className='px-2 py-1 border border-purple rounded-lg bg-[#6c6b6b32]' name='name' onChange={changeHandler} value={formData.name}></input>
                             <input type='email' required placeholder='Email address' className='px-2 py-1 border border-purple rounded-lg bg-[#6c6b6b32]' name='email' onChange={changeHandler} value={formData.email}></input>
                             <input type='text' required placeholder='Subject' className='px-2 py-1 border border-purple rounded-lg bg-[#6c6b6b32]' name='subject' onChange={changeHandler} value={formData.subject}></input>
                             <input type='textbox' required className='px-2 py-1 border border-purple rounded-lg bg-[#6c6b6b32]' placeholder='Your Message' name='message' onChange={changeHandler} value={formData.message}></input>
-                        </form>
-                        <button onClick={submitHandler} className='flex space-x-2 items-center w-fit submitButton text-black mt-8'>
-                            <div>Submit</div> 
-                            <span><FiSend/></span>
-                        </button>
+                            <button className='flex space-x-2 items-center w-fit submitButton text-black mt-8'>
+                                <div>Submit</div> 
+                                <span><FiSend/></span>
+                            </button>
+                        </form> 
                     </div>
                     {/* links */}
                     <div className='flex flex-col space-y-10 md:space-y-6 justify-center font-Poppins'>
@@ -109,7 +130,7 @@ function Contact({isDark}){
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 export default Contact;

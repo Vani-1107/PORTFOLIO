@@ -12,7 +12,6 @@ function Card(props) {
         document.getElementById('image').classList.remove('xyz1');
         document.getElementById('text-title').classList.remove('text-display');
     } 
-    // top-[0%]  md:top-[10%] lg:top-[20%]
   return (
         <div className='relative' id='eachProject'>
             <div className={`relative cursor-pointer mx-auto project_card_${props.isDark}${props.data1.id} group`}  id='projectImage'>

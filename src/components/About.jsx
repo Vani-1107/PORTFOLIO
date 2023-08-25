@@ -1,12 +1,19 @@
 import image1 from './image.jpeg';
-import design from '../assets/feature-section1-dottedrows.png';
-import { FaChevronRight } from 'react-icons/fa';
-import {FaChevronLeft} from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { fadeIn } from './variants';
+import {useInView} from 'react-intersection-observer';
 function About(){
+    const[ref]=useInView({
+        threshold:0.5,
+      });
     return(
-        <div className='relative pt-20 pb-32' id='about'>
-            <div className="w-[70%] flex flex-col items-center justify-center lg:flex-row gap-y-10 lg:gap-x-40 mx-auto mt-16 ">
+        <div className='relative pt-20 pb-32' id='about' ref={ref}>
+            <motion.div className="w-[70%] flex flex-col items-center justify-center lg:flex-row gap-y-10 lg:gap-x-40 mx-auto mt-16"
+                variants={fadeIn()}
+                initial='hidden'
+                whileInView={'show'}
+                viewport={{once:false,amount:0.3}}
+            >
                 <div className='flex flex-col w-full lg:max-w-[45%]'>
                     {/* heading */}
                     <div>
@@ -28,21 +35,7 @@ function About(){
                     <img src={image1} alt='image' className='h-[400px] p-[2rem] image -mt-4'></img>
                     {/* <img src={design} className='absolute top-0 z-10'></img> */}
                 </div>
-            </div>
-            {/* <NavLink to='/'>
-            <div className='opacity-0 sm:opacity-100 absolute flex items-center justify-center top-[50%] left-10'>
-                <div className='shift flex justify-center items-center'>
-                    <FaChevronLeft className='text-[20px] text-white'/>
-                </div>
-            </div>
-            </NavLink>
-            <NavLink to='/skills'>
-            <div className='opacity-0 sm:opacity-100 absolute flex items-center justify-center top-[50%] right-button'>
-                <div className='shift flex justify-center items-center'>
-                    <FaChevronRight className='text-[20px] text-white'/>
-                </div>
-            </div>
-            </NavLink> */}
+            </motion.div>
         </div>
     )
 }

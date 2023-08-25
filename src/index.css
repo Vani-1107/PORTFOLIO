@@ -8,6 +8,11 @@
     padding: 0;
     scroll-behavior: smooth;
 }
+:root{
+    --toastify-color-success: #9340ff;
+    --toastify-color-progress-success: #ffffff;
+    --toastify-icon-color-success: #ffffff;
+}
 .bgdark{
     color: white;
     min-height: 100vh;
@@ -565,3 +570,8 @@
         transform: scale(1);
     }
 }
+
+.Toastify__toast--success {
+    background: #9340ff;
+    color: white;
+ }

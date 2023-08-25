@@ -12,10 +12,15 @@ import {BiCode,BiLogoCPlusPlus,BiLogoHtml5,BiLogoCss3,BiLogoJavascript,BiCodeCur
 import {BsChevronDown,BsChevronUp} from 'react-icons/bs';
 import {FaCopyright} from 'react-icons/fa';
 import { useState } from 'react';
-
+import { motion } from 'framer-motion';
+import { fadeIn } from './variants';
+import {useInView} from 'react-intersection-observer';
 function Skills({isDark}){
     const [langChevron,setLangChevron] = useState("down");
     const [libChevron,setLibChevron] = useState("down");
+    const[ref]=useInView({
+        threshold:0.5,
+    });
     function langHandler()
     {
         const lang = document.body.querySelector(".language1");
@@ -54,12 +59,22 @@ function Skills({isDark}){
         libHandler();
     },[]);
     return(
-        <div className={`footer_bg${isDark} w-full relative pt-14 pb-20 font-Poppins`} id='skills'>
-                <div className='w-full mt-7 mx-auto flex flex-col items-center'>
+        <div className={`footer_bg${isDark} w-full relative pt-14 pb-20 font-Poppins`} id='skills' ref={ref}>
+                <motion.div className='w-full mt-7 mx-auto flex flex-col items-center'
+                    variants={fadeIn()}
+                    initial='hidden'
+                    whileInView={'show'}
+                    viewport={{once:false,amount:0.3}} 
+                >
                     <p className=' text-5xl font-extralight'>Skills</p>
                     <div className='opacity-75'>Skills and competences...</div>
-                </div>
-                <div className='flex flex-col-reverse items-center lg:flex-row w-full lg:w-10/12 space-y-10 lg:space-x-28 mt-20 mx-auto'>
+                </motion.div>
+                <motion.div className='flex flex-col-reverse items-center lg:flex-row w-full lg:w-10/12 space-y-10 lg:space-x-28 mt-20 mx-auto'
+                    variants={fadeIn()}
+                    initial='hidden'
+                    whileInView={'show'}
+                    viewport={{once:false,amount:0.3}}
+                >
                     <div className='flex flex-col md:flex-row w-10/12 justify-between'>
                         {/* languages */}
                         <div className='flex flex-col w-[60%] pb-20 md:pb-0 md:w-[40%] relative mx-auto'>
@@ -209,7 +224,7 @@ function Skills({isDark}){
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
         </div>
     )
 }

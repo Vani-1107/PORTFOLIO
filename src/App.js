@@ -8,25 +8,10 @@ import Projects from "./components/Projects";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [isDark,setIsDark] = useState('dark');
-  // function modeHandler()
-  // {
-  //   if(isDark == 'dark'){
-  //     setIsDark('light');
-  //   }
-  //   else{
-  //     setIsDark('dark');
-  //   }
-  // }
-  // function closePopUp()
-  // {
-  //     document.getElementsById('overlay').classList.remove('overlayactive');
-  // }
-  // function addOverlay()
-  // {
-  //   document.getElementsById('overlay').classList.add('overlayactive');
-  // }
   return (
     <div className={`bg${isDark} relative`}>
       <NavBar isDark={isDark} setIsDark={setIsDark}/>
@@ -36,8 +21,6 @@ function App() {
       <Projects isDark={isDark}/>
       <Contact isDark={isDark}/>
       <Footer isDark={isDark}/>
-      {/* <div id='overlay' className='overlay' onclick={closePopUp}>
-      </div>   closePopUp={closePopUp} addOverlay={addOverlay}*/}
     </div>
   );
 }

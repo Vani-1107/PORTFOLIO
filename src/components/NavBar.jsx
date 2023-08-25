@@ -1,7 +1,9 @@
 import Typewriter from "typewriter-effect";
 import {MdOutlineDarkMode} from "react-icons/md";
 import {BsSun} from "react-icons/bs";
+import { useScroll,motion } from "framer-motion";
 function NavBar(props){
+    const { scrollYProgress } = useScroll()
     function themeHandler(){
         // props.modeHandler();
         if(props.isDark == 'dark'){
