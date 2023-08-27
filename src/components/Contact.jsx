@@ -24,7 +24,7 @@ function Contact({isDark}){
         e.preventDefault();
         console.log(formData);
         api
-        .post(`/api/v1/messageform`, formData )
+        .post(`/messageform`,formData )
         .then((response) => {
             console.log(response);
             toast.success('Message sent successfully!', {
